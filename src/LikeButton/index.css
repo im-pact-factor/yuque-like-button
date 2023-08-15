@@ -22,14 +22,7 @@
   transform-origin: 25px 67px
 }
 
-.like-button-active {
-  animation-name: like-module_like;
-  animation-duration: .9s;
-  animation-iteration-count: 1;
-  animation-timing-function: steps(27);
-  animation-fill-mode: forwards
-}
-
+.like-button-active,
 .like-button-active  .like-button {
   animation-name: like-module_like;
   animation-duration: .9s;

@@ -4,9 +4,18 @@ import classNames from "classnames";
 
 export const LikeButton = () => {
   const [isHover, setIsHover] = useState(false);
-  const [isLike, setIsLike] = useState(false); // 假设你有一个isLike状态
+  const [isLike, setIsLike] = useState(false);
+
+  const handleMouseEnter = () => {
+    if (!isLike) setIsHover(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHover(false);
+  };
+
   const handleLikeClick = () => {
-    setIsLike(!isLike);
+    setIsLike((prevIsLike) => !prevIsLike);
   };
 
   const likeIconClasses = classNames(
@@ -16,17 +25,12 @@ export const LikeButton = () => {
       "like-button-active": isLike,
     }
   );
+
   return (
     <div className={likeIconClasses}>
       <span
-        onMouseEnter={() => {
-          if (!isLike) {
-            setIsHover(true);
-          }
-        }}
-        onMouseLeave={() => {
-          setIsHover(false);
-        }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         onClick={handleLikeClick}
         className="like-button"
       ></span>
